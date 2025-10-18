@@ -63,6 +63,7 @@ jobs:
           path: dist
   deploy:
     needs: build
-    uses: ./gitactionworkflow/.github/workflows/reusable.yml
+    uses: krishnh/gitactionworkflow/.github/workflows/reusable.yml@main
+
     
     

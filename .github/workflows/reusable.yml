@@ -7,9 +7,16 @@ on:
     type: string
     default: dist
     required: false
+ outputs:
+  results:
+   description: the results:
+   value: ${{jobs.deploy.outputs.outcome}}
+
 
 jobs:
   deploy:
+   outputs:
+     outcome: ${{ steps.set-1.outputs.step-result }}
     runs-on: ubuntu-latest
     steps:
       - name: get code
@@ -18,5 +25,8 @@ jobs:
          name: ${{ inputs.artifacts_name }}
       - name: output information
         run: echo "now deploying the sadi..."
+      - name: set results output
+        id: set-1
+        run: echo "step-result = success" >> $GITHUB_OUTPUT
       
           

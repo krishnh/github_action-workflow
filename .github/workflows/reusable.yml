@@ -1,0 +1,7 @@
+name: reusable
+on: workflow_call
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+      - name: output information
+        run: echo "now deploying the sadi..."

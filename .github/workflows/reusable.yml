@@ -6,6 +6,7 @@ on:
     description: Artifact name
     type: string
     default: dist
+    required: false
 
 jobs:
   deploy:

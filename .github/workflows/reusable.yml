@@ -27,6 +27,6 @@ jobs:
         run: echo "now deploying the sadi..."
       - name: set results output
         id: set-1
-        run: echo "step-result = success" >> $GITHUB_OUTPUT
+        run: echo "step-result=success" >> $GITHUB_OUTPUT
       
           

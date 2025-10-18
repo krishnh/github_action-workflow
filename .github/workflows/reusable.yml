@@ -1,23 +1,23 @@
 name: reusable deploy
 on: 
- workflow_call: 
-  inputs:
-   artifacts_name:
-    description: Artifact name
-    type: string
-    default: dist
-    required: false
- outputs:
-  results:
-   description: the results:
-   value: ${{jobs.deploy.outputs.outcome}}
+  workflow_call: 
+    inputs:
+     artifacts_name:
+      description: Artifact name
+      type: string
+      default: dist
+      required: false
+    outputs:
+     results:
+      description: the results
+      value: ${{ jobs.deploy.outputs.outcome }}
 
 
 jobs:
   deploy:
-   outputs:
-     outcome: ${{ steps.set-1.outputs.step-result }}
     runs-on: ubuntu-latest
+    outputs:
+     outcome: ${{ steps.set-1.outputs.step-result }}
     steps:
       - name: get code
         uses: actions/download-artifact@v4

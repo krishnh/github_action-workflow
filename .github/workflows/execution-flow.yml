@@ -1,4 +1,4 @@
-name: Website Deployment
+name: Website Deployment workflow
 on:
   push:
     branches:
@@ -66,6 +66,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with: 
      artifacts_name: dist-files
+     
 
   print-output:
     needs: deploy

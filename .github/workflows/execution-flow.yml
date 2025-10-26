@@ -19,8 +19,11 @@ jobs:
       #   run: npm ci
       - name: cache dependencies with composite custom action 
         uses: ./.github/actions/cached-deps
+        id: gzy
         with:
           caching: 'false'
+      - name: output information
+        run: echo "cache used or not hemant ? ${{ steps.gzy.outputs.used-cache }}"    
       - name: Lint code
         run: npm run lint
   test:

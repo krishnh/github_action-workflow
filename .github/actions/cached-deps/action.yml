@@ -1,14 +1,28 @@
 name: 'get & cached dependencies'
 description: "get the dependencies and cached them."
+inputs:
+  caching:
+    description: "is cching required or not "
+    required: false 
+    default: 'true'
+outputs:
+  used-cache:
+    description: "whether we use cache or not" 
+    value: ${{ steps.install.outputs.XYZ }}
+
 runs:
   using: 'composite'
   steps:
     - name: Cache dependencies
+      if: inputs.caching == "true"
       id: cache
       uses: actions/cache@v4
       with:
         path: ~/.npm
         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
-      run: npm ci    
+      id: install
+      run: |
+        npm ci   
+        echo "XYZ=${{ inputs.caching }}" >> $GITHUB_OUTPUT
       shell: bash

@@ -19,6 +19,8 @@ jobs:
       #   run: npm ci
       - name: cache dependencies with composite custom action 
         uses: ./.github/actions/cached-deps
+        with:
+          caching: 'false'
       - name: Lint code
         run: npm run lint
   test:

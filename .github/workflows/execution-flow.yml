@@ -22,8 +22,8 @@ jobs:
         uses: ./.github/actions/cached-deps
         with:
           caching: 'false'
-      - name: output information
-        run: echo "cache used or not hemant ? ${{ steps.gzy.outputs.used-cache }}"    
+      # - name: output information
+      #   run: echo "cache used or not hemant? ${{ steps.gzy.outputs.used-cache }}"    
       - name: Lint code
         run: npm run lint
   test:

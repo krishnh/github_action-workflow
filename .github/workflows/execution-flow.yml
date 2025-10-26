@@ -17,9 +17,9 @@ jobs:
       #     key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       # - name: Install dependencies
       #   run: npm ci
-      - name: cache dependencies with composite custom action 
+      - name: cache dependencies with composite custom action
+        id: gzy 
         uses: ./.github/actions/cached-deps
-        id: gzy
         with:
           caching: 'false'
       - name: output information

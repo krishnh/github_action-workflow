@@ -3,8 +3,9 @@ on:
  workflow_call:
    inputs:
     env_type:
-     required: true
-     description: "the environment"
+      required: true
+      description: "the environment"
+      type: string
    outputs:
     resultout_message:
      description: "the resultant value"

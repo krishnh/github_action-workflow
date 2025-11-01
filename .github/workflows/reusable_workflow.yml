@@ -19,7 +19,7 @@ jobs:
 
    steps:
     - name: msg 
-    - id: msg
+      id: msg
       run: |
        if ["${{ inputs.env_type }}"] = "cloud" ];then
         echo "msg=Deployed in cloud" >> "$GITHUB_OUTPUT"

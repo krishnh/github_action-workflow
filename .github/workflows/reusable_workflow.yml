@@ -1,16 +1,16 @@
-name : This is the reusabe workflow
-on: 
- workflow_call:
-   inputs:
-    env_type:
-      required: true
-      description: "the environment"
-      type: string
-   outputs:
-    resultout_message:
-     description: "the resultant value"
-     value: ${{ jobs.build.outputs.message }} 
-     
+name: This is the reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      env_type:
+        required: true
+        description: "the environment"
+        type: string
+    outputs:
+      resultout_message:
+        description: "the resultant value"
+        value: ${{ jobs.build.outputs.message }}
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       message: ${{ steps.msg.outputs.msg }}
     steps:
       - name: Print input
-        run: echo "Environment received: ${{ github.event.inputs.env_type }}"
+        run: echo "Environment received: ${{ inputs.env_type }}"
 
       - name: Set message
         id: msg
@@ -29,4 +29,3 @@ jobs:
           else
             echo "msg=Deployed on-prem" >> "$GITHUB_OUTPUT"
           fi
-     

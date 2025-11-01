@@ -6,7 +6,7 @@ on:
      required: true
      description: "the environment"
    outputs:
-     resultout_message:
+    resultout_message:
      description: "the resultant value"
      value: ${{ jobs.build.outputs.message }}  
 

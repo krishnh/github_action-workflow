@@ -14,22 +14,19 @@ on:
 
 jobs:
   build:
-   runs-on: ubuntu-latest
-   outputs:
-    description: message output 
-    message: ${{ steps.build.outputs.msg }}
+    runs-on: ubuntu-latest
+    outputs:
+      message: ${{ steps.msg.outputs.msg }}
+    steps:
+      - name: Print input
+        run: echo "Environment received: ${{ inputs.env_type }}"
 
-   steps:
-    - name: msg 
-      id: msg
-      run: |
-       if ["${{ inputs.env_type }}"] = "cloud" ];then
-        echo "msg=Deployed in cloud" >> "$GITHUB_OUTPUT"
-       else 
-        echo "msg=Deployed in on-prem" >> "$GITHUB_OUTPUT"
-       fi 
-
-    - name: Print input
-      run: echo "Environment received: ${{ inputs.env_type }}"  
-
+      - name: Set message
+        id: msg
+        run: |
+          if [ "${{ inputs.env_type }}" = "cloud" ]; then
+            echo "msg=Deployed in cloud" >> "$GITHUB_OUTPUT"
+          else
+            echo "msg=Deployed on-prem" >> "$GITHUB_OUTPUT"
+          fi
      

@@ -17,12 +17,9 @@ jobs:
    runs-on: ubuntu-latest
    outputs:
     description: message output 
-    message: ${{ steps.msg.outputs.msg }}
+    message: ${{ steps.build.outputs.msg }}
 
    steps:
-    - name: Print output
-      run: echo "output value : ${{ inputs.env_type }}" 
-
     - name: msg 
       id: msg
       run: |
@@ -31,5 +28,8 @@ jobs:
        else 
         echo "msg=Deployed in on-prem" >> "$GITHUB_OUTPUT"
        fi 
+
+    - name: Print output
+      run: echo "Env received: ${{ inputs.env_type }}"    
 
      

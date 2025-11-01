@@ -19,7 +19,7 @@ jobs:
       message: ${{ steps.msg.outputs.msg }}
     steps:
       - name: Print input
-        run: echo "Environment received: ${{ inputs.env_type }}"
+        run: echo "Environment received: ${{ github.event.inputs.env_type }}"
 
       - name: Set message
         id: msg

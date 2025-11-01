@@ -9,7 +9,8 @@ on:
    outputs:
     resultout_message:
      description: "the resultant value"
-     value: ${{ jobs.build.outputs.message }}  
+     value: ${{ jobs.build.outputs.message }} 
+     
 
 jobs:
   build:
@@ -19,6 +20,9 @@ jobs:
     message: ${{ steps.msg.outputs.msg }}
 
    steps:
+    - name: Print output
+      run: echo "output value : ${{ inputs.env_type }}" 
+
     - name: msg 
       id: msg
       run: |

@@ -1,0 +1,30 @@
+name : This is the reusabe workflow
+on: 
+ workflow_call:
+   inputs:
+    env_type:
+     required: true
+     description: "the environment"
+   outputs:
+     resultout_message:
+     description: "the resultant value"
+     value: ${{ jobs.build.outputs.message }}  
+
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   outputs:
+    description: message output 
+    message: ${{ steps.msg.outputs.msg }}
+
+   steps:
+    - name: msg 
+    - id: msg
+      run: |
+       if ["${{ inputs.env_type }}"] = "cloud" ];then
+        echo "msg=Deployed in cloud" >> "$GITHUB_OUTPUT"
+       else 
+        echo "msg=Deployed in on-prem" >> "$GITHUB_OUTPUT"
+       fi 
+
+     

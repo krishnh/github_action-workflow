@@ -8,8 +8,8 @@ on:
      required: true
      type: choice
      options:
-      - 'cloud'
-      - 'on-prem'
+      - cloud
+      - on-prem
      default: "cloud" 
 
 jobs:

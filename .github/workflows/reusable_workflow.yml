@@ -29,7 +29,7 @@ jobs:
         echo "msg=Deployed in on-prem" >> "$GITHUB_OUTPUT"
        fi 
 
-    - name: Print output
-      run: echo "Env received: ${{ inputs.env_type }}"    
+    - name: Print input
+      run: echo "Environment received: ${{ inputs.env_type }}"  
 
      

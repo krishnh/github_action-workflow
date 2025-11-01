@@ -14,9 +14,9 @@ on:
 
 jobs:
   call-reusable:
-  uses: ./.github/workflows/reusable_workflow.yml 
-  with:
-   env_type: ${{ github.event.inputs.environment }}  
+    uses: ./.github/workflows/reusable_workflow.yml 
+    with:
+      env_type: ${{ github.event.inputs.environment }}  
 
 
 

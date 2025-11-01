@@ -18,8 +18,8 @@ jobs:
     outputs:
       message: ${{ steps.msg.outputs.msg }}
     steps:
-      - name: Print input
-        run: echo "Environment received: ${{ inputs.env_type }}"
+      # - name: Print input
+      #   run: echo "Environment received: ${{ inputs.env_type }}"
 
       - name: Set message
         id: msg

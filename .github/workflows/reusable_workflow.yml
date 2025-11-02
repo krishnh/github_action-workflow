@@ -19,11 +19,7 @@ jobs:
       message: ${{ steps.msg.outputs.msg }}
     steps:
       - name: Print input
-<<<<<<< HEAD
-        run: echo "Environment received:" "${{ inputs.env_type }}"....
-=======
         run: echo "Environment received:" "${{ inputs.env_type }}"
->>>>>>> parent of 783072b (Revert the changes Reevert "corrections 20")
 
       - name: Set message
         id: msg
